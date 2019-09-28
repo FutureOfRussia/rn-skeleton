@@ -1,13 +1,8 @@
-import { createStore, applyMiddleware } from 'redux'
-import { createLogger } from 'redux-logger'
-import thunk from 'redux-thunk'
-import reducer from '../reducers'
+import { init } from '@rematch/core'
+import models from '../models'
 
-const middlewares = [
-  createLogger(),
-  thunk,
-]
-
-const store = createStore(reducer, applyMiddleware(...middlewares))
+const store = init({
+  models,
+})
 
 export default store
