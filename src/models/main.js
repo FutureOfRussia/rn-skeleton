@@ -13,7 +13,7 @@ export default {
     changeTitle: (state, payload) => ({ ...state, title: payload }),
   },
   effects: (dispatch) => ({
-    changeTitleAsync: async (payload, rootState) => {
+    changeTitleAsync: async (payload) => {
       await new Promise((resolve) => setTimeout(resolve, 1000))
       dispatch.main.changeTitle(payload)
     },

@@ -3,7 +3,8 @@ import Colors from './Colors'
 import Styles from './Styles'
 
 const apiEndpoint = ''
-const pxToTotalSize = (px) => totalSize(px / 19.5)
+const denominator = height(1) / width(1) > 2 ? 7.6 : 7.6
+const px = (num) => num * (totalSize(1) / denominator)
 
 export {
   Colors,
@@ -11,6 +12,6 @@ export {
   height,
   width,
   totalSize,
-  pxToTotalSize,
+  px,
   apiEndpoint,
 }

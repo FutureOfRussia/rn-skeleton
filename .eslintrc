@@ -7,6 +7,7 @@
   "plugins": [
     "react",
     "react-native",
+    "react-hooks",
     "flowtype",
     "jsx-a11y",
     "import"
@@ -76,6 +77,9 @@
     "global-require": [
       0
     ],
+    "react/no-access-state-in-setstate": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/static-property-placement" : 0,
     "react-native/no-unused-styles": 2,
     "react-native/split-platform-components": 2,
     "react-native/no-inline-styles": 2,
@@ -85,7 +89,6 @@
     "no-console": 0
   },
   "env": {
-    "jest": true,
     "react-native/react-native": true
   }
 }

@@ -1,31 +1,31 @@
 import { StyleSheet } from 'react-native'
-import { Colors } from '../../constants'
+import { Colors, px } from '../../constants'
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.white(),
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 30,
+    paddingHorizontal: px(30),
   },
   input: {
     width: '100%',
-    height: 70,
-    backgroundColor: Colors.black,
-    borderRadius: 10,
+    height: px(45),
+    backgroundColor: Colors.black(),
+    borderRadius: px(3),
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 10,
-    color: Colors.white,
-    fontSize: 18,
+    paddingHorizontal: px(10),
+    color: Colors.white(),
+    fontSize: px(14),
+    marginBottom: px(20),
   },
   text: {
     width: '100%',
-    height: 30,
-    marginBottom: 20,
-    paddingHorizontal: 10,
-    color: Colors.black,
-    fontSize: 18,
+    marginBottom: px(20),
+    paddingHorizontal: px(10),
+    color: Colors.black(),
+    fontSize: px(14),
   },
 })
