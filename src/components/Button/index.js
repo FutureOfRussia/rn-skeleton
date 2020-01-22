@@ -19,12 +19,23 @@ type ButtonProps = {
   onPress?: Function,
 }
 
-export default function Button(props: ButtonProps) {
-  const {
-    label, onPress, buttonStyle, textStyle, disabled,
-    color, loading, disabledWithoutColor, icon, iconStyle,
-  } = props
+Button.defaultProps = {
+  label: '',
+  icon: null,
+  disabled: false,
+  loading: false,
+  disabledWithoutColor: false,
+  color: Colors.black(),
+  buttonStyle: {},
+  textStyle: {},
+  iconStyle: {},
+  onPress: () => {},
+}
 
+export default function Button({
+  label, onPress, buttonStyle, textStyle, disabled,
+  color, loading, disabledWithoutColor, icon, iconStyle,
+}: ButtonProps) {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -47,17 +58,4 @@ export default function Button(props: ButtonProps) {
       )}
     </TouchableOpacity>
   )
-}
-
-Button.defaultProps = {
-  label: '',
-  icon: null,
-  disabled: false,
-  loading: false,
-  disabledWithoutColor: false,
-  color: Colors.black(),
-  buttonStyle: {},
-  textStyle: {},
-  iconStyle: {},
-  onPress: () => {},
 }

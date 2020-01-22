@@ -1,10 +1,9 @@
 import { AsyncStorage } from 'react-native'
 import axios from 'axios'
-import { apiEndpoint } from '../constants'
 
 export default function () {
   const config = {
-    baseURL: `${apiEndpoint}`,
+    baseURL: '',
     header: {
       'Content-Type': 'application/json',
     },

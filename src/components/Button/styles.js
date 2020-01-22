@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
-import { Colors, px } from '../../constants'
+import { Colors } from '../../constants'
+import { px } from '../../helpers/Dimensions'
 
 export default StyleSheet.create({
   button: {

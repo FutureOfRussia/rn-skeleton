@@ -7,12 +7,12 @@ import store from './src/store'
 import AppNavigator from './src/navigation/AppNavigator'
 import { Styles } from './src/constants'
 
-const _loadResourcesAsync = async () => Promise.all([
-  Font.loadAsync({}),
-])
-
 export default function App() {
   const [loading, setLoading] = useState(true)
+
+  const _loadResourcesAsync = async () => Promise.all([
+    Font.loadAsync({}),
+  ])
 
   if (loading) {
     return (
@@ -26,7 +26,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <View style={Styles.full}>
+      <View style={Styles.fullFlex}>
         <AppNavigator />
       </View>
     </Provider>

@@ -1,9 +1,26 @@
-import { createAppContainer, createSwitchNavigator } from 'react-navigation'
-import MainStack from './MainStack'
+import React from 'react'
+import { NavigationNativeContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { Main } from '../screens'
+import { Colors } from '../constants'
 
-export default createAppContainer(createSwitchNavigator(
-  {
-    Main: MainStack,
+const Stack = createStackNavigator()
+const screenOptions = {
+  headerShown: false,
+  cardShadowEnabled: false,
+  cardOverlayEnabled: false,
+  animationEnabled: false,
+  cardStyle: {
+    backgroundColor: Colors.transparent,
   },
-  { initialRouteName: 'Main' },
-))
+}
+
+export default function () {
+  return (
+    <NavigationNativeContainer>
+      <Stack.Navigator initialRouteName="Main" screenOptions={screenOptions}>
+        <Stack.Screen name="Main" component={Main} />
+      </Stack.Navigator>
+    </NavigationNativeContainer>
+  )
+}
