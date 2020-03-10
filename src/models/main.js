@@ -1,9 +1,4 @@
-// @flow
-export type MainState = {
-  title: string,
-}
-
-const initialState: MainState = {
+const initialState = {
   title: "It's React Native skeleton project!",
 }
 

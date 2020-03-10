@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavigationNativeContainer } from '@react-navigation/native'
+import { NativeContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Main } from '../screens'
 import { Colors } from '../constants'
@@ -17,10 +17,10 @@ const screenOptions = {
 
 export default function () {
   return (
-    <NavigationNativeContainer>
+    <NativeContainer>
       <Stack.Navigator initialRouteName="Main" screenOptions={screenOptions}>
         <Stack.Screen name="Main" component={Main} />
       </Stack.Navigator>
-    </NavigationNativeContainer>
+    </NativeContainer>
   )
 }
