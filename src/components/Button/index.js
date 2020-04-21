@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import React, { memo } from 'react'
 import {
   TouchableOpacity, Text, ActivityIndicator, Image, View,
 } from 'react-native'
@@ -7,12 +7,12 @@ import { Colors } from '../../constants'
 import styles from './styles'
 
 type ButtonProps = {
-  label?: string,
-  icon?: number,
-  disabled?: boolean,
-  loading?: boolean,
-  disabledWithoutColor?: boolean,
   color?: string,
+  label?: string,
+  disabled?: boolean,
+  disabledWithoutColor?: boolean,
+  loading?: boolean,
+  icon?: number,
   buttonStyle?: Object,
   textStyle?: Object,
   iconStyle?: Object,
@@ -20,19 +20,19 @@ type ButtonProps = {
 }
 
 Button.defaultProps = {
+  color: Colors.BLACK,
   label: '',
-  icon: null,
   disabled: false,
-  loading: false,
   disabledWithoutColor: false,
-  color: Colors.black(),
+  loading: false,
+  icon: null,
   buttonStyle: {},
   textStyle: {},
   iconStyle: {},
   onPress: () => {},
 }
 
-export default function Button({
+function Button({
   label, onPress, buttonStyle, textStyle, disabled,
   color, loading, disabledWithoutColor, icon, iconStyle,
 }: ButtonProps) {
@@ -45,7 +45,7 @@ export default function Button({
       disabled={disabled || loading || disabledWithoutColor}
     >
       {loading ? (
-        <ActivityIndicator color={Colors.white()} size="large" />
+        <ActivityIndicator color={Colors.white()} />
       ) : (
         <View style={styles.content}>
           {!!icon && <Image resizeMode="contain" source={icon} style={[styles.icon, iconStyle]} />}
@@ -59,3 +59,5 @@ export default function Button({
     </TouchableOpacity>
   )
 }
+
+export default memo(Button)

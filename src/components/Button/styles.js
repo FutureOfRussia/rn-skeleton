@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native'
-import { Colors } from '../../constants'
 import { px } from '../../helpers/Dimensions'
+import { black } from '../../helpers/Colors'
+import { Colors } from '../../constants'
 
 export default StyleSheet.create({
   button: {
@@ -13,20 +14,21 @@ export default StyleSheet.create({
   content: {
     width: '100%',
     height: '100%',
+    borderRadius: px(3),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   disabledBtn: {
-    backgroundColor: Colors.disabled,
+    backgroundColor: black(0.6),
   },
   text: {
     textAlign: 'center',
-    color: Colors.white(),
+    color: Colors.WHITE,
     fontSize: px(14),
   },
   disabledText: {
-    color: Colors.black(),
+    color: Colors.BLACK,
   },
   icon: {
     height: px(20),

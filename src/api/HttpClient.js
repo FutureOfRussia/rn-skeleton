@@ -1,10 +1,11 @@
 import { AsyncStorage } from 'react-native'
 import axios from 'axios'
+import { apiEndpoint } from '../constants'
 
 export default function () {
   const config = {
-    baseURL: '',
-    header: {
+    baseURL: `${apiEndpoint}/dims-api/v1`,
+    headers: {
       'Content-Type': 'application/json',
     },
   }
@@ -14,9 +15,7 @@ export default function () {
   axiosInstance.interceptors.request.use(async (_conf) => {
     const token = await AsyncStorage.getItem('token')
     const conf = _conf
-
-    if (token) conf.headers.Authorization = `Bearer ${token}`
-
+    if (token) conf.headers.Authorization = `Token ${token}`
     return conf
   }, (error) => Promise.reject(error))
 

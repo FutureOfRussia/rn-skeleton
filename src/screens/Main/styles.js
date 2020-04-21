@@ -5,7 +5,7 @@ import { px } from '../../helpers/Dimensions'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.white(),
+    backgroundColor: Colors.WHITE,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: px(30),
@@ -13,12 +13,12 @@ export default StyleSheet.create({
   input: {
     width: '100%',
     height: px(45),
-    backgroundColor: Colors.black(),
+    backgroundColor: Colors.BLACK,
     borderRadius: px(3),
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: px(10),
-    color: Colors.white(),
+    color: Colors.WHITE,
     fontSize: px(14),
     marginBottom: px(20),
   },
@@ -26,7 +26,7 @@ export default StyleSheet.create({
     width: '100%',
     marginBottom: px(20),
     paddingHorizontal: px(10),
-    color: Colors.black(),
+    color: Colors.BLACK,
     fontSize: px(14),
   },
 })

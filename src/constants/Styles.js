@@ -18,4 +18,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  fullCentered: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 })

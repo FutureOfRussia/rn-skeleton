@@ -19,7 +19,7 @@ export default function Main() {
         onChangeText={(text) => changeTitle(text)}
         style={styles.input}
       />
-      <Button label="Press this" onPress={() => setCount(count + 1)} />
+      <Button label="Press" onPress={() => setCount(count + 1)} />
     </View>
   )
 }

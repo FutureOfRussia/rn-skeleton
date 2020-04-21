@@ -1,4 +1,4 @@
-const hitSlop = (offset) => ({
+const aroundHitSlop = (offset) => ({
   top: offset.top || offset,
   left: offset.left || offset,
   bottom: offset.bottom || offset,
@@ -6,5 +6,5 @@ const hitSlop = (offset) => ({
 })
 
 export {
-  hitSlop,
+  aroundHitSlop,
 }
