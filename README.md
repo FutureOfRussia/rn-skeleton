@@ -2,20 +2,36 @@
 React Native skeleton project.
 
 ### Usage
-#### Install Expo CLI
-```sh
-npm install -g expo-cli # in the root directory
-```
-#### Install Expo client for iOS and Android
-* 🍎 [Download Expo client for iOS from the App Store](https://itunes.com/apps/exponent)  
-* 🤖 [Download Expo client for Android from the Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent)  
-#### Install project dependencies
-Navigate to the project folder in your terminal `cd rn-skeleton` and  run `npm install`.
-#### Starting the development server
-Type ```expo start``` to start the local development server of Expo CLI.
-#### Opening the app on your phone/tablet
-* 🍎 On your iPhone or iPad, open the default Apple "Camera" app and scan the QR code you see in the terminal or in Expo Dev Tools.
-* 🤖 On your Android device, press "Scan QR Code" on the "Projects" tab of the Expo client app and scan the QR code you see in the terminal or in Expo Dev Tools.
+* **Install Expo CLI**  
+  
+  ```sh
+  npm install -g expo-cli # in the root directory
+  ```
+  
+* **Install Expo client for iOS and Android**  
+  
+  * 🍎 [Download Expo client for iOS from the App Store](https://itunes.com/apps/exponent)
+  * 🤖 [Download Expo client for Android from the Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent)
+  
+* **Clone repository** 
+
+  ```bash
+  git clone https://github.com/FutureOfRussia/rn-skeleton.git
+  ```
+
+* **Install project dependencies**  
+  
+  Navigate to the project folder in your terminal `cd rn-skeleton` and  run `npm install`.  
+  
+* **Starting the development server**  
+  
+  Type ```expo start``` to start the local development server of Expo CLI.  
+  
+* **Opening the app on your phone/tablet**  
+  
+  * 🍎 On your iPhone or iPad, open the default Apple "Camera" app and scan the QR code you see in the terminal or in Expo Dev Tools.
+  * 🤖 On your Android device, press "Scan QR Code" on the "Projects" tab of the Expo client app and scan the QR code you see in the terminal or in Expo Dev Tools.
+  
 ### Code examples
 #### Navigation
 Simple navigation container with a stack and one screen inside.
