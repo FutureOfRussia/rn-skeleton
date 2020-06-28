@@ -43,14 +43,10 @@ import { Main } from '../screens'
 
 const Stack = createStackNavigator()
 
-const screenOptions = {
-  headerShown: false, // Setting this to false hides the header.
-}
-
 export default function () {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Main" screenOptions={screenOptions}>
+      <Stack.Navigator initialRouteName="Main">
         <Stack.Screen name="Main" component={Main} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -60,21 +56,32 @@ export default function () {
 _More information in the official [documentation](https://reactnavigation.org/docs/navigation-container)._
 #### Data Model used by the Rematch library
 The model brings together state, reducers, async actions & action creators in one place.
-```js
+```ts 
+interface InitialState {
+  title: string
+}
+
+interface Dispatch {
+  main: {
+    changeTitle: (payload: string) => InitialState
+    changeTitleAsync: (payload: string) => Promise<void>
+  }
+}
+
 const initialState = {
-  title: "It's React Native skeleton project!", // initial state
+  title: "It's React Native project!", // initial state
 }
 
 export default {
   state: initialState,
   reducers: {
     // handle state changes with pure functions
-    changeTitle: (state, payload) => ({ ...state, title: payload }),
+    changeTitle: (state, payload: string): InitialState => ({ ...state, title: payload }),
   },
-  effects: (dispatch) => ({
+  effects: (dispatch: Dispatch) => ({
     // handle state changes with impure functions.
     // use async/await for async actions
-    changeTitleAsync: async (payload) => {
+    changeTitleAsync: async (payload: string) => {
       await new Promise((resolve) => setTimeout(resolve, 1000))
       dispatch.main.changeTitle(payload)
     },
@@ -85,7 +92,7 @@ _More information in the official [documentation](https://rematch.github.io/rema
 #### Http client
 Used to process requests to the server and its responses.
 ```js
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 import axios from 'axios'
 import { apiEndpoint } from '../constants'
 
@@ -122,9 +129,9 @@ const getUserImages = async (id) => {
 }
 ```
 ### Libraries used
-* [Expo SDK 37](https://docs.expo.io/)
+* [Expo SDK 38](https://docs.expo.io/)
 * [React Navigation v5](https://reactnavigation.org/docs/getting-started)
 * A Redux Framework [Rematch](https://github.com/rematch/rematch)
 * [axios](https://github.com/axios/axios)
 * [ESLint](https://eslint.org/docs/user-guide/getting-started) and [Airbnb config](https://github.com/vuejs/eslint-config-airbnb) for him
-* [Flow](https://flow.org/en/docs/getting-started/)
+* [TypeScript](https://www.typescriptlang.org/docs/home)
