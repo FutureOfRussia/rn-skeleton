@@ -1,5 +1,8 @@
 {
   "expo": {
+    "experiments": {
+      "turboModules": true
+    },
     "name": "rn-skeleton",
     "slug": "rn-skeleton",
     "version": "1.0.0",
