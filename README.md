@@ -37,7 +37,7 @@ React Native skeleton project.
 ### [Bounce Button](https://github.com/FutureOfRussia/rn-skeleton/blob/master/components/BounceButton/index.tsx)
 Button with bouncing animation. Based on Pressable component from React Native and React Native Reanimated animation.
 #### Usage example
-```tsx
+```jsx
 <BounceButton onPress={() => console.log('Hello World!')}>
   <Text>Press</Text>
 </BounceButton>
@@ -101,7 +101,7 @@ Supports animated styles.
 ### [Opacity Button](https://github.com/FutureOfRussia/rn-skeleton/blob/master/components/OpacityButton/index.tsx)
 Button with opacity animation. Based on Pressable component from React Native.
 #### Usage example
-```tsx
+```jsx
 <OpacityButton onPress={() => console.log('Hello World!')}>
   <Text>Press</Text>
 </OpacityButton>
@@ -164,7 +164,7 @@ Press event callback.
 Component for displaying local push notifications.
 #### Usage example
 In the root component:
-```tsx
+```jsx
 import { LocaleNotification } from './components/LocaleNotification'
 
 return (
@@ -175,7 +175,7 @@ return (
 )
 ```
 Call from anywhere:
-```tsx
+```jsx
 import { pushNotification } from '../LocaleNotification'
 
 return (
@@ -202,7 +202,7 @@ Arguments:
 Component for managing Expo OTA updates. If there is an available update for the application, a banner will be shown with which you can install this update and restart the application. Uses expo [update module](https://docs.expo.io/versions/latest/sdk/updates/).
 #### Usage example
 In the root component:
-```tsx
+```jsx
 import { UpdateBanner } from './components'
 
 return (
@@ -215,7 +215,7 @@ return (
 
 ### [Http client](https://github.com/FutureOfRussia/rn-skeleton/blob/master/api/HttpClient.tsx)
 Used to process requests to the server and its responses.
-```ts
+```js
 import AsyncStorage from '@react-native-community/async-storage'
 import axios, { AxiosInstance } from 'axios'
 import { apiEndpoint } from '../constants'
@@ -250,7 +250,7 @@ export default function HttpClient(): AxiosInstance {
 }
 ```
 #### Usage example
-```ts
+```js
 const getUserImages = async (id: number) => {
   const { data } = await HttpClient.get('api/images', { params: { user_id: id } })
   console.log(data)
@@ -259,7 +259,7 @@ const getUserImages = async (id: number) => {
 
 ## Using Redux with the Rematch library
 ### Types
-```ts
+```js
 // types.ts
 
 export type Values = {
@@ -280,7 +280,7 @@ export type Dispatch = {
 
 ### Model
 The model brings together state, reducers, async actions & action creators in one place.
-```ts
+```js
 // values.ts
 import { Values, Dispatch, State } from './types'
 
@@ -307,7 +307,7 @@ export default {
 
 ### Store
 Connect all models to the store.
-```ts
+```js
 // store.ts
 
 import { init } from '@rematch/core'
@@ -316,7 +316,7 @@ import values from './values'
 export default init({ models: { values } })
 ```
 Wrap the root component in a provider.
-```tsx
+```jsx
 // App.tsx
 
 import { Provider } from 'react-redux'
@@ -333,7 +333,7 @@ return (
 
 ### Selector and Dispatch
 Use [hooks from react-redux](https://react-redux.js.org/api/hooks) to get and modify store data.
-```tsx
+```jsx
 import { useDispatch,useSelector } from 'react-redux'
 import { Dispatch, State, Values } from './types'
 
