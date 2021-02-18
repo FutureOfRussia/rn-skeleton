@@ -1,23 +1,27 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
-import { useColorScheme, useCachedResources } from './src/hooks'
-import Navigation from './src/navigation'
-import store from './src/store'
+import { Provider } from 'react-redux'
+import React from 'react'
 
-export default function App() {
+import { useCachedResources, useColorScheme, useDebounce } from './hooks'
+import { LocaleNotification } from './components/LocaleNotification'
+import { UpdateBanner } from './components'
+import Navigation from './navigation'
+import store from './store'
+
+export default function App(): JSX.Element {
   const isLoadingComplete = useCachedResources()
   const colorScheme = useColorScheme()
 
-  if (!isLoadingComplete) {
-    return null
-  }
+  useDebounce()
+
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <Provider store={store}>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+        <Navigation colorScheme={colorScheme} isLoadingComplete={isLoadingComplete} />
+        <LocaleNotification />
+        <UpdateBanner />
+        <StatusBar />
       </Provider>
     </SafeAreaProvider>
   )

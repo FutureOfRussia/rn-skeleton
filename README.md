@@ -2,7 +2,7 @@
 # rn-skeleton
 React Native skeleton project.
 
-### Usage
+## Usage
 * **Install Expo CLI**  
   
   ```sh
@@ -33,84 +33,211 @@ React Native skeleton project.
   * 🍎 On your iPhone or iPad, open the default Apple "Camera" app and scan the QR code you see in the terminal or in Expo Dev Tools.
   * 🤖 On your Android device, press "Scan QR Code" on the "Projects" tab of the Expo client app and scan the QR code you see in the terminal or in Expo Dev Tools.
   
-### Code examples
-#### Navigation
-Simple navigation container with a stack and one screen inside.
-```js
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import { Main } from '../screens'
-
-const Stack = createStackNavigator()
-
-export default function () {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Main">
-        <Stack.Screen name="Main" component={Main} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  )
-}
+## Custom components
+### [Bounce Button](https://github.com/FutureOfRussia/rn-skeleton/blob/master/components/BounceButton/index.tsx)
+Button with bouncing animation. Based on Pressable component from React Native and React Native Reanimated animation.
+#### Usage example
+```tsx
+<BounceButton onPress={() => console.log('Hello World!')}>
+  <Text>Press</Text>
+</BounceButton>
 ```
-_More information in the official [documentation](https://reactnavigation.org/docs/navigation-container)._
-#### Data Model used by the Rematch library
-The model brings together state, reducers, async actions & action creators in one place.
-```ts 
-interface InitialState {
-  title: string
-}
+#### Props
+#### `debounce`
 
-interface Dispatch {
-  main: {
-    changeTitle: (payload: string) => InitialState
-    changeTitleAsync: (payload: string) => Promise<void>
-  }
-}
+Determines if the debounce module is enabled. To use this module, an `useDebounce` hook must be placed in the root component.
 
-const initialState = {
-  title: "It's React Native project!", // initial state
-}
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| bool   | No       | false   |
 
-export default {
-  state: initialState,
-  reducers: {
-    // handle state changes with pure functions
-    changeTitle: (state, payload: string): InitialState => ({ ...state, title: payload }),
-  },
-  effects: (dispatch: Dispatch) => ({
-    // handle state changes with impure functions.
-    // use async/await for async actions
-    changeTitleAsync: async (payload: string) => {
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      dispatch.main.changeTitle(payload)
-    },
-  }),
-}
+---
+#### `disabled`
+
+Specifies the disabled state of the button.
+
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| bool   | No       | false   |
+
+---
+#### `haptic`
+
+Enabled vibration when pressed and released.
+
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| bool   | No       | false   |
+
+---
+#### `hitSlop`
+
+Sets additional distance outside of element in which a press can be detected.
+
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| number | No       | 10 px   |
+
+---
+#### `onPress`
+
+Press event callback.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+#### `style`
+
+Supports animated styles.
+
+| Type   | Required |
+| ------ | -------- |
+| style  | No       |
+
+---
+
+### [Opacity Button](https://github.com/FutureOfRussia/rn-skeleton/blob/master/components/OpacityButton/index.tsx)
+Button with opacity animation. Based on Pressable component from React Native.
+#### Usage example
+```tsx
+<OpacityButton onPress={() => console.log('Hello World!')}>
+  <Text>Press</Text>
+</OpacityButton>
 ```
-_More information in the official [documentation](https://rematch.github.io/rematch/)._
-#### Http client
+#### Props
+#### `debounce`
+
+Determines if the debounce module is enabled. To use this module, an `useDebounce` hook must be placed in the root component.
+
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| bool   | No       | false   |
+
+---
+#### `disabled`
+
+Specifies the disabled state of the button.
+
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| bool   | No       | false   |
+
+---
+#### `hitSlop`
+
+Sets additional distance outside of element in which a press can be detected.
+
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| number | No       | 10 px   |
+
+---
+#### `onLongPress`
+
+Long press event callback.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+#### `onPress`
+
+Press event callback.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+#### `style`
+
+| Type   | Required |
+| ------ | -------- |
+| style  | No       |
+
+---
+
+### [Locale Notification](https://github.com/FutureOfRussia/rn-skeleton/blob/master/components/LocaleNotification/index.tsx)
+Component for displaying local push notifications.
+#### Usage example
+In the root component:
+```tsx
+import { LocaleNotification } from './components/LocaleNotification'
+
+return (
+  <View>
+    <App />
+    <LocaleNotification />
+  </View>
+)
+```
+Call from anywhere:
+```tsx
+import { pushNotification } from '../LocaleNotification'
+
+return (
+  <BounceButton onPress={() => pushNotification({ msg: 'Hello World!' })}>
+    <Text>Press</Text>
+  </BounceButton>
+)
+```
+
+#### API
+
+`pushNotification(notification)` - Push a new Notification to the event loop.
+
+Arguments:
+
+- **notification (_Notification_)** -- Notification object.
+
+#### Notification
+- **msg (_string_ - require)** - Notification text.
+- **action (_function_)** - If passed, the action button will be displayed. Callback of the action button.
+- **actionLabel (_string_)** - Action button label. Default value - 'Ok'.
+
+### [Update Banner](https://github.com/FutureOfRussia/rn-skeleton/blob/master/components/UpdateBanner/index.tsx)
+Component for managing Expo OTA updates. If there is an available update for the application, a banner will be shown with which you can install this update and restart the application. Uses expo [update module](https://docs.expo.io/versions/latest/sdk/updates/).
+#### Usage example
+In the root component:
+```tsx
+import { UpdateBanner } from './components'
+
+return (
+  <View>
+    <App />
+    <UpdateBanner />
+  </View>
+)
+```
+
+### [Http client](https://github.com/FutureOfRussia/rn-skeleton/blob/master/api/HttpClient.tsx)
 Used to process requests to the server and its responses.
-```js
+```ts
 import AsyncStorage from '@react-native-community/async-storage'
-import axios from 'axios'
+import axios, { AxiosInstance } from 'axios'
 import { apiEndpoint } from '../constants'
 
-export default function HttpClient() {
+export default function HttpClient(): AxiosInstance {
   const config = {
     baseURL: `${apiEndpoint}`, // base path to API
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
   }
 
   const axiosInstance = axios.create(config)
 
   axiosInstance.interceptors.request.use(async (_conf) => {
-    const token = await AsyncStorage.getItem('token') // get authorization token from device storage
+    // get authorization token from device storage
+    const token = JSON.parse((await AsyncStorage.getItem('token')) || '')
     const conf = _conf
-    if (token) conf.headers.Authorization = `Token ${token}` // checking the token and adding it to the request header
+
+    // checking the token and adding it to the request header
+    if (token && moment.unix(token.expiration_date).isAfter(moment())) {
+      conf.headers.Authorization = `Bearer ${token.access_token}`
+    }
+
     return conf
   }, (error) => Promise.reject(error))
 
@@ -122,17 +249,106 @@ export default function HttpClient() {
   return axiosInstance
 }
 ```
-Usage:
-```js
-const getUserImages = async (id) => {
-  const res = await HttpClient.get(images, { params: { user_id: id } })
-  console.log(res)
+#### Usage example
+```ts
+const getUserImages = async (id: number) => {
+  const { data } = await HttpClient.get('api/images', { params: { user_id: id } })
+  console.log(data)
 }
 ```
-### Libraries used
-* [Expo SDK 38](https://docs.expo.io/)
+
+## Using Redux with the Rematch library
+### Types
+```ts
+// types.ts
+
+export type Values = {
+  title: string
+}
+
+export type State = {
+  values: Values
+}
+
+export type Dispatch = {
+  values: {
+    changeTitle: (payload: string) => Values
+    changeTitleAsync: (payload: string) => Promise<void>
+  }
+}
+```
+
+### Model
+The model brings together state, reducers, async actions & action creators in one place.
+```ts
+// values.ts
+import { Values, Dispatch, State } from './types'
+
+const initialState: Values = {
+  title: "It's React Native project!", // initial state
+}
+
+export default {
+  state: initialState,
+  reducers: {
+    // handle state changes with pure functions
+    changeTitle: (state: Values, payload: string): Values => ({ ...state, title: payload }),
+  },
+  effects: (dispatch: Dispatch) => ({
+    // handle state changes with impure functions.
+    // use async/await for async actions
+    changeTitleAsync: async (payload: string, state: State) => {
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+      dispatch.main.changeTitle(payload)
+    },
+  }),
+}
+```
+
+### Store
+Connect all models to the store.
+```ts
+// store.ts
+
+import { init } from '@rematch/core'
+import values from './values'
+
+export default init({ models: { values } })
+```
+Wrap the root component in a provider.
+```tsx
+// App.tsx
+
+import { Provider } from 'react-redux'
+import store from './store'
+
+return (
+  <View>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </View>
+)
+```
+
+### Selector and Dispatch
+Use [hooks from react-redux](https://react-redux.js.org/api/hooks) to get and modify store data.
+```tsx
+import { useDispatch,useSelector } from 'react-redux'
+import { Dispatch, State, Values } from './types'
+
+function TextInputWithRedux() {
+  const { state: { changeTitle } } = useDispatch<Dispatch>()
+  const { title } = useSelector<State, Values>((state) => state.values)
+
+  return <TextInput value={title} onChangeText={(value) => changeTitle(value)} />
+}
+```
+
+## Libraries
+* [Expo SDK 40](https://docs.expo.io/)
 * [React Navigation v5](https://reactnavigation.org/docs/getting-started)
-* A Redux Framework [Rematch](https://github.com/rematch/rematch)
+* [React Native Reanimated v2](https://docs.swmansion.com/react-native-reanimated/)
+* A [Redux](https://github.com/reduxjs/redux) Framework [Rematch](https://github.com/rematch/rematch)
 * [axios](https://github.com/axios/axios)
-* [ESLint](https://eslint.org/docs/user-guide/getting-started) and [Airbnb config](https://github.com/vuejs/eslint-config-airbnb) for him
-* [TypeScript](https://www.typescriptlang.org/docs/home)
+* [TypeScript](https://www.typescriptlang.org/docs/home), [Prettier](https://prettier.io/docs/en/), [ESLint](https://eslint.org/docs/user-guide/getting-started)

@@ -1,0 +1,51 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "semi": ["error", "never"],
+    "import/no-unresolved": 0,
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".ts", ".tsx"]
+    }],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "arrowParens": "avoid",
+        "endOfLine": "auto",
+        "semi": false,
+        "printWidth": 120
+      }
+    ],
+    "no-use-before-define": 0,
+    "@typescript-eslint/no-use-before-define": 0,
+    "import/extensions": ["error", "never"],
+    "react/prop-types": 0,
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "no-console": 0,
+    "global-require": [0],
+    "react/jsx-props-no-spreading": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "react/no-unescaped-entities": 0,
+    "@typescript-eslint/no-empty-function": 0
+  }
+}

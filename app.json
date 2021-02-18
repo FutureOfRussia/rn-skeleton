@@ -1,8 +1,5 @@
 {
   "expo": {
-    "experiments": {
-      "turboModules": true
-    },
     "name": "rn-skeleton",
     "slug": "rn-skeleton",
     "version": "1.0.0",
@@ -23,6 +20,12 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

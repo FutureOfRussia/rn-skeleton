@@ -1,27 +1,29 @@
 export default {
   titles: {
-    tabOne: 'Tab One Title',
-    tabTwo: 'Tab Two Title',
+    notFound: 'Oops!',
+    tabOne: 'Tab One',
+    tabTwo: 'Tab Two',
+    tabOneTitle: 'Tab One Title',
+    tabTwoTitle: 'Tab Two Title',
   },
-  tabs: {
-    tabOne: 'One',
-    tabTwo: 'Two',
+  updateBanner: {
+    title: 'Application Update',
+    subtitle: 'A new version of the application is available',
+    loading: 'Downloading update,\nwait...',
+    load: 'Loading',
+    done: 'Done,\nreload the application',
+    reload: 'Reload',
+    update: 'Install now',
   },
   notFound: {
-    title: 'This screen doesn\'t exist.',
-    link: 'Go to home screen!',
-  },
-  tabOne: {
-    title: 'Tab One',
-    path: '/screens/TabOneScreen.tsx',
-  },
-  tabTwo: {
-    title: 'Tab Two',
-    path: '/screens/TabTwoScreen.tsx',
+    title: "This screen doesn't exist.",
+    navigate: 'Go to home screen!',
   },
   editScreenInfo: {
-    termOne: 'Open up the code for this screen:',
-    termTwo: 'Change any of the text, save the file, and your app will automatically update.',
-    link: 'Tap here if your app doesn\'t automatically update after making changes',
+    body: [
+      'Open up the code for this screen:',
+      'Change any of the text, save the file, and your app will automatically update.',
+    ],
+    tap: "Tap here if your app doesn't automatically update after making changes",
   },
 }

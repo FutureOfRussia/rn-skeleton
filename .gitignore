@@ -8,8 +8,14 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-.idea
-.expo-shared
 
 # macOS
 .DS_Store
+.idea/.gitignore
+.idea/codeStyles/
+.idea/inspectionProfiles/
+.idea/jsLinters/
+.idea/misc.xml
+.idea/modules.xml
+.idea/rn-skeleton.iml
+.idea/vcs.xml
