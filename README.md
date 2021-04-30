@@ -216,7 +216,7 @@ return (
 ### [Http client](https://github.com/FutureOfRussia/rn-skeleton/blob/master/api/HttpClient.tsx)
 Used to process requests to the server and its responses.
 ```ts
-import AsyncStorage from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import axios, { AxiosInstance } from 'axios'
 import { apiEndpoint } from '../constants'
 
@@ -346,7 +346,7 @@ function TextInputWithRedux() {
 ```
 
 ## Libraries
-* [Expo SDK 40](https://docs.expo.io/)
+* [Expo SDK 41](https://docs.expo.io/)
 * [React Navigation v5](https://reactnavigation.org/docs/getting-started)
 * [React Native Reanimated v2](https://docs.swmansion.com/react-native-reanimated/)
 * A [Redux](https://github.com/reduxjs/redux) Framework [Rematch](https://github.com/rematch/rematch)
