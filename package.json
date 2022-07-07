@@ -34,7 +34,7 @@
     "expo-updates": "~0.5.4",
     "expo-web-browser": "~9.1.0",
     "lodash": "^4.17.20",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
